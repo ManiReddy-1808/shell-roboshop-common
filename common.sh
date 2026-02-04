@@ -9,17 +9,16 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+START_TIME=$(date +%s)
+mkdir -p $LOGS_FOLDER
+echo "$(date "+%Y-%m-%d %H:%M:%S") | Script started executing at: $(date)" | tee -a $LOGS_FILE
+
 check_root(){
     if [ $USER_ID -gt 0 ]; then
         echo -e " $R Please run this script with root user :) $N" | tee -a $LOGS_FILE
         exit 3;
     fi
 }
-
-START_TIME=$(date +%s)
-mkdir -p $LOGS_FOLDER
-echo "$(date "+%Y-%m-%d %H:%M:%S") | Script started executing at: $(date)" | tee -a $LOGS_FILE
-
 
 # tee command is used to write the output to log file as well as to the console
 VALIDATE(){  
