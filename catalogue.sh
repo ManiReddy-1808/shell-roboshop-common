@@ -25,3 +25,4 @@ else
     echo -e "Catalogue DB already exists ... $Y SKIPPING $N"
 fi
 
+print_total_time
