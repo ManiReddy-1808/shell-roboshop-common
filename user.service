@@ -1,12 +1,12 @@
 [Unit]
-Description=User Service
+Description = User Service
 [Service]
 User=roboshop
 Environment=MONGO=true
-# highlight-start
+// highlight-start
 Environment=REDIS_URL='redis://redis.daws88s.online:6379'
 Environment=MONGO_URL="mongodb://mongodb.daws88s.online:27017/users"
-# highlight-end
+// highlight-end
 ExecStart=/bin/node /app/server.js
 SyslogIdentifier=user
 
