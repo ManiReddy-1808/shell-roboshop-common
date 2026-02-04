@@ -76,6 +76,26 @@ app_setup(){
     VALIDATE $? "Extracting $app_name App Code"
 }
 
+java_setup(){
+    dnf list installed maven &>>$LOGS_FILE
+    if [ $? -eq 0 ]; then
+        echo -e "maven already installed ... $Y SKIPPING $N"
+    else
+        dnf install maven -y &>>LOGS_FILE
+        VALIDATE $? "Installing maven"
+    fi
+      
+    cd /app 
+    VALIDATE $? "Changing Directory to /app"
+
+    mvn clean package &>>$LOGS_FILE
+    VALIDATE $? "Building $app_name App"
+
+    mv target/$app_name-1.0.jar $app_name.jar &>>$LOGS_FILE
+    VALIDATE $? "Renaming $app_name Jar File"
+
+}
+
 systemd_setup(){
     #Currently we are in app directory, so moving to script dir
     cp $SCRIPT_DIR/$app_name.service /etc/systemd/system/$app_name.service
