@@ -26,7 +26,7 @@ VALIDATE $? "Enabling NGINX"
 systemctl start nginx &>>$LOGS_FILE
 VALIDATE $? "Starting NGINX"
 
-rm -rf $app_dir/* &>>$LOGS_FILE
+rm -rf /usr/share/nginx/html/* &>>$LOGS_FILE
 VALIDATE $? "Remove default content."
 
 curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip &>>$LOGS_FILE
