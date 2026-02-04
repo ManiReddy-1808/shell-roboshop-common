@@ -11,6 +11,9 @@ N="\e[0m"
 
 mkdir -p $LOGS_FOLDER
 
+START_TIME=$(date +%s)
+echo "$(date "+%Y-%m-%d %H:%M:%S") | Script started executing at: $(date)" | tee -a $LOGS_FILE
+
 check_root(){
     if [ $USER_ID -gt 0 ]; then
         echo -e " $R Please run this script with root user :) $N" | tee -a $LOGS_FILE
@@ -21,8 +24,15 @@ check_root(){
 # tee command is used to write the output to log file as well as to the console
 VALIDATE(){  
     if [ $1 -eq 0 ]; then
-        echo -e "$2 ... $G SUCCESS $N" | tee -a $LOGS_FILE
+        echo -e "$(date "+%Y-%m-%d %H:%M:%S") | $2 ... $G SUCCESS $N" | tee -a $LOGS_FILE
     else 
-        echo -e "$2 ... $R FAILURE $N" | tee -a $LOGS_FILE
+        echo -e "$(date "+%Y-%m-%d %H:%M:%S") | $2 ... $R FAILURE $N" | tee -a $LOGS_FILE
     fi
+}
+
+
+print_total_time(){
+    END_TIME=$(date)
+    TOTAL_TIME=(($END_TIME - $START_TIME))
+    echo "$(date "+%Y-%m-%d %H:%M:%S") | Script executed in: $G $TOTAL_TIME seconds $N" | tee -a $LOGS_FILE
 }
