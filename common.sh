@@ -4,7 +4,7 @@ USER_ID=$(id -u)
 LOGS_FOLDER="/var/log/shell-roboshop"
 LOGS_FILE="$LOGS_FOLDER/$0.log"
 MONGODB_HOST=mongodb.dawsmani.site
-DOMAIN_NAME="mysql.dawsmani.site"
+MYSQL_HOST="mysql.dawsmani.site"
 mysql_root_password="RoboShop@1"
 SCRIPT_DIR=$PWD
 
