@@ -5,7 +5,7 @@ source ./common.sh
 app_name=user
 
 check_root
-nodejs_setup
 app_setup
+nodejs_setup
 systemd_setup
 print_total_time
