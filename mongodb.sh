@@ -21,3 +21,5 @@ VALIDATE $? "Allowing Remote Connection"
 
 systemctl restart mongod &>>$LOGS_FILE
 VALIDATE $? "Restarted MongoDB"
+
+print_total_time
