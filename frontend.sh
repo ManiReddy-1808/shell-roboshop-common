@@ -38,6 +38,8 @@ VALIDATE $? "Going to html folder"
 unzip /tmp/frontend.zip &>>$LOGS_FILE
 VALIDATE $? "Unziping frontend code"
 
+rm -rf /etc/nginx/nginx.conf
+
 cp $SCRIPT_DIR/nginx.conf /etc/nginx/nginx.conf &>>$LOGS_FILE
 VALIDATE $? "Copying NGINX Config File"
 
