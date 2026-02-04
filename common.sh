@@ -35,7 +35,7 @@ VALIDATE(){
 nodejs_setup(){
     dnf list installed nodejs &>>$LOGS_FILE
     if [ $? -eq 0 ]; then
-        echo -e "NodeJS already installed ... $Y SKIPPING $N"
+        echo -e "$(date "+%Y-%m-%d %H:%M:%S") | NodeJS already installed ... $Y SKIPPING $N" | tee -a $LOGS_FILE
     else
         dnf module disable nodejs -y &>>$LOGS_FILE
         VALIDATE $? "Disabling NodeJS Module"
