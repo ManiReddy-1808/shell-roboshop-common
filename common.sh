@@ -3,7 +3,7 @@
 USER_ID=$(id -u)
 LOGS_FOLDER="/var/log/shell-roboshop"
 LOGS_FILE="$LOGS_FOLDER/$0.log"
-MONGODB_HOST=dawsmani.site
+MONGODB_HOST=mongodb.dawsmani.site
 
 SCRIPT_DIR=$PWD
 
