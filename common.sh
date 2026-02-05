@@ -19,7 +19,7 @@ echo "$(date "+%Y-%m-%d %H:%M:%S") | Script started executing at: $(date)" | tee
 
 check_root(){
     if [ $USER_ID -gt 0 ]; then
-        echo -e " $R Please run this script with root user :) $N" | tee -a $LOGS_FILE
+        echo -e " $R Please run this script with root user :) $N"
         exit 3;
     fi
 }
