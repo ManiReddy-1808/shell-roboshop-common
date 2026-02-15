@@ -148,6 +148,3 @@ This structure makes the project:
 * Scalable for more services 🚀
 
 In real DevOps environments, centralizing shared logic like this is a standard engineering practice.
-
-```
-```
